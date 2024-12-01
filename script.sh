@@ -1,7 +1,11 @@
 #!/bin/bash
 #tmpfs
 mkdir /crdroid
-mount /dev/sdc1 /crdroid 
+mount /dev/sda1 /crdroid
+fallocate -l 48G /tmp/swap.img
+chmod 0600 /tmp/swap.img
+mkswap /tmp/swap.img
+swapon /tmp/swap.img
 #requirements
 apt update && apt upgrade -y
 apt install git git-lfs curl wget python-is-python3 sudo nano nload -y
